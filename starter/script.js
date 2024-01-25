@@ -28,6 +28,8 @@ document.querySelector('.check').addEventListener('click', function () {
     // When the player wins
   } else if (guess === secretNumber) {
     document.querySelector('.message').textContent = 'Correct Number!';
+    document.querySelector('body').style.backgroundColor = '#60b347';
+    document.querySelector('.number').style.width = '30rem';
 
     // When the player guesses too high and scored is decreased by 1 each time
   } else if (guess > secretNumber) {
