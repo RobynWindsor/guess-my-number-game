@@ -13,7 +13,6 @@
 
 // Event Handler Function
 const secretNumber = Math.trunc(Math.random() * 20) + 1;
-document.querySelector('.number').textContent = secretNumber;
 
 let score = 20;
 
@@ -28,6 +27,11 @@ document.querySelector('.check').addEventListener('click', function () {
     // When the player wins
   } else if (guess === secretNumber) {
     document.querySelector('.message').textContent = 'Correct Number!';
+
+    // This will reveal the actual secret number after player wins
+    document.querySelector('.number').textContent = secretNumber;
+
+    // When player wins, background will change to green and the sizing of the box will double
     document.querySelector('body').style.backgroundColor = '#60b347';
     document.querySelector('.number').style.width = '30rem';
 
@@ -53,4 +57,9 @@ document.querySelector('.check').addEventListener('click', function () {
       document.querySelector('.score').textContent = 0;
     }
   }
+});
+
+document.querySelector('.check').addEventListener('click', function () {
+  const guess = Number(document.querySelector('.guess').value);
+  console.log(guess, typeof guess);
 });
