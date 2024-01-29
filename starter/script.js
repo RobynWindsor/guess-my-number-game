@@ -41,20 +41,12 @@ document.querySelector('.check').addEventListener('click', function () {
     }
 
     // When the player guesses too high and scored is decreased by 1 each time
-  } else if (guess > secretNumber) {
-    if (score > 1) {
-      document.querySelector('.message').textContent = '📈 Too high! ';
-      score--;
-      document.querySelector('.score').textContent = score;
-    } else {
-      document.querySelector('.message').textContent = 'You Lost The Game ';
-      document.querySelector('.score').textContent = 0;
-    }
 
-    // When the player guesses too low and scored is decreased by 1 each time
-  } else if (guess < secretNumber) {
+    // When guess is wrong
+  } else if (guess !== secretNumber) {
     if (score > 1) {
-      document.querySelector('.message').textContent = '📈 Too Low! ';
+      document.querySelector('.message').textContent =
+        guess > secretNumber ? '📈 Too high! ' : '📈 Too Low! ';
       score--;
       document.querySelector('.score').textContent = score;
     } else {
@@ -63,6 +55,34 @@ document.querySelector('.check').addEventListener('click', function () {
     }
   }
 });
+//
+//
+//
+//
+//
+//
+//   } else if (guess > secretNumber) {
+//     if (score > 1) {
+//       document.querySelector('.message').textContent = '📈 Too high! ';
+//       score--;
+//       document.querySelector('.score').textContent = score;
+//     } else {
+//       document.querySelector('.message').textContent = 'You Lost The Game ';
+//       document.querySelector('.score').textContent = 0;
+//     }
+
+//     // When the player guesses too low and scored is decreased by 1 each time
+//   } else if (guess < secretNumber) {
+//     if (score > 1) {
+//       document.querySelector('.message').textContent = '📈 Too Low! ';
+//       score--;
+//       document.querySelector('.score').textContent = score;
+//     } else {
+//       document.querySelector('.message').textContent = 'You Lost The Game ';
+//       document.querySelector('.score').textContent = 0;
+//     }
+//   }
+// });
 
 document.querySelector('.again').addEventListener('click', function () {
   score = 20;
