@@ -13,8 +13,8 @@
 
 // Event Handler Function
 let secretNumber = Math.trunc(Math.random() * 20) + 1;
-
 let score = 20;
+let highScore = 0;
 
 document.querySelector('.check').addEventListener('click', function () {
   const guess = Number(document.querySelector('.guess').value);
@@ -34,6 +34,11 @@ document.querySelector('.check').addEventListener('click', function () {
     // When player wins, background will change to green and the sizing of the box will double
     document.querySelector('body').style.backgroundColor = '#60b347';
     document.querySelector('.number').style.width = '30rem';
+
+    if (score > highScore) {
+      highScore = score;
+      document.querySelector('.highscore').textContent = highScore;
+    }
 
     // When the player guesses too high and scored is decreased by 1 each time
   } else if (guess > secretNumber) {
